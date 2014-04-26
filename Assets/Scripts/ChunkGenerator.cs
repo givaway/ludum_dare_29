@@ -74,8 +74,8 @@ public class ChunkGenerator : MonoBehaviour {
 				GameObject g;
 				for(int y = -chunkLoadRadius; y<chunkLoadRadius; y++)
 				{
-					Random.seed = (int)((chunk_position.x+1)+(chunk_position.y+y))+seed;
-					g = (GameObject)GameObject.Instantiate(chunks[Random.Range(0,chunks.GetLength(0))],new Vector3((chunk_position.x-y)*chunkSize,(chunk_position.y+(chunkLoadRadius-1))*chunkSize,0),Quaternion.identity);
+					Random.seed = (int)((chunk_position.x-1)+(chunk_position.y+y))+seed;
+					g = (GameObject)GameObject.Instantiate(chunks[Random.Range(0,chunks.GetLength(0))],new Vector3((chunk_position.x-y)*chunkSize,(chunk_position.y-(chunkLoadRadius-1))*chunkSize,0),Quaternion.identity);
 					g.GetComponent<ChunkBehavior>().radius = chunkSize * chunkLoadRadius;
 					g.GetComponent<ChunkBehavior>().follow = follow;
 				}

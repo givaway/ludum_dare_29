@@ -12,7 +12,7 @@ public class ChunkBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Vector3.Distance(follow.transform.position,this.transform.position)>radius)
+		if(Mathf.Abs(this.transform.position.x - follow.transform.position.x)>radius ||  Mathf.Abs(this.transform.position.y - follow.transform.position.y)>radius)
 		{
 			Destroy(this.gameObject);
 		}
