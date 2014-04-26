@@ -1,5 +1,5 @@
 #pragma strict
-var objectToTrigger : GameObject;
+var objectToTrigger : Rigidbody[];
 var triggered : boolean;
 //just make this a looping statement, trigger multiple stallagtites. Also have boolean to turn it on/off in start method.
 
@@ -10,10 +10,12 @@ function OnCollisionEnter(Col : Collision){
 }
 
 function triggerObject(){
-	if(!triggered){
+
+	if(!triggered){ 
+	for(var i : int = 0;i<objectToTrigger.Length;i++){
 		triggered = true;
-		objectToTrigger.rigidbody.useGravity = true;
-		objectToTrigger.rigidbody.isKinematic = false; 
-		 
+		objectToTrigger[i].useGravity = true;
+		objectToTrigger[i].isKinematic = false;  
+		}	 
 	}
 }
