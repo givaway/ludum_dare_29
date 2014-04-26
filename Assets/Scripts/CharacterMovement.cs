@@ -42,7 +42,7 @@ public class CharacterMovement : MonoBehaviour {
 	void OnCollisionEnter(Collision e)
 	{
 		Vector3 normal = e.contacts[0].normal;
-		Debug.Log(normal);
+		//Debug.Log(normal);
 		if(normal.x > 0f && Mathf.Abs(normal.y)<0.5)
 		{
 			right = true;
