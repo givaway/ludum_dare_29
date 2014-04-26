@@ -5,7 +5,7 @@ public class ChunkBehavior : MonoBehaviour {
 
 	// Use this for initialization
 	public int radius = 0;
-	public GameObject follow;
+	public GameObject follow; 
 	void Start () {
 	
 	}
