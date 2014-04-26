@@ -1,0 +1,5 @@
+Scubba meets spelunky meets limbo
+
+Collapsing Caves
+If you blow up parts of the cave, it collapses faster
+enemys are slow and players can hide from them if they cant find any weapons, however all conflicts should be avoided in order to live, enemys are dangerous
