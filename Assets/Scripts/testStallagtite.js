@@ -5,6 +5,7 @@ var triggered : boolean;
 
 function OnCollisionEnter(Col : Collision){
 	if(Col.collider.tag == "Player"){
+	yield WaitForSeconds(0.5);
 	triggerObject();
 	}
 }
