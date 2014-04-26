@@ -6,7 +6,7 @@ public class CharacterMovement : MonoBehaviour {
 	public float movementSpeed;
 	public float jumpForce;
 	bool left = false;
-	bool right = false;
+	bool right = false; 
 	Vector3 velocity_ref = Vector3.zero;
 	Vector3 velocity = Vector3.zero;
 	public bool jumping = true;
