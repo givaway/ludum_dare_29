@@ -57,5 +57,22 @@ public class CharacterMovement : MonoBehaviour {
 			jumping = false;
 		}
 	}
+	void OnCollisionExit(Collision e)
+	{
+		Vector3 normal = e.contacts[0].normal;
+		if(jumping)
+		{
+			left = false;
+			right = false;
+			if(normal.x > 0f )
+			{
+				right = true;
+			}
+			else if(normal.x < -0f )
+			{
+				left = true;
+			}
+		}
+	}
 	
 }
