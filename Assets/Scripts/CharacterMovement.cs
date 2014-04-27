@@ -14,7 +14,7 @@ public class CharacterMovement : MonoBehaviour {
 	void Update () {
 
 		//handle movement left/right.
-		if(Input.GetKey(KeyCode.A) && !right){
+		if(Input.GetKey(KeyCode.A)){
 			//move left
 			Vector3 scale = this.transform.localScale;
 			scale.x = -1;
@@ -22,7 +22,7 @@ public class CharacterMovement : MonoBehaviour {
 			this.transform.position -= Vector3.SmoothDamp(velocity,new Vector3(movementSpeed,0,0),ref velocity_ref,0.9f);
 			left = false;
 		}
-		if(Input.GetKey(KeyCode.D) && !left){
+		if(Input.GetKey(KeyCode.D)){
 			//move right
 			Vector3 scale = this.transform.localScale;
 			scale.x = 1;
