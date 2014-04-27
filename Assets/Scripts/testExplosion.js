@@ -20,6 +20,7 @@ function triggerObject(){
 		objectToTrigger[i].useGravity = true;
 		objectToTrigger[i].isKinematic = false; 
 		objectToTrigger[i].AddForce(Vector3(Random.Range(-5,5),Random.Range(-5,5),Random.Range(-5,5)));
+		objectToTrigger[i].tag = "Death";
 		}	 
 	}
 }
