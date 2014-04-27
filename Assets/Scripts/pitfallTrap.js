@@ -19,6 +19,7 @@ function triggerObject(){
 		triggered = true;
 		objectToTrigger[i].useGravity = true;
 		objectToTrigger[i].isKinematic = false;  
+		objectToTrigger[i].tag = "Death";
 		}	 
 	}
 }
