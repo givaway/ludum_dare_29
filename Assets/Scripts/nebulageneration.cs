@@ -7,7 +7,8 @@ public class nebulageneration : MonoBehaviour {
 	public int density = 3;
 	GameObject[] g;
 	// Use this for initialization
-	void Start () {
+	void Start () { 
+		density = 4;
 		Random.seed = Random.Range(0,53500);
 		g = new GameObject[density];
 		for(int i = 0; i<density; i++)
