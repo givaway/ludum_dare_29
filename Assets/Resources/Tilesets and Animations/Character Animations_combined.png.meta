@@ -62,10 +62,10 @@ TextureImporter:
     - name: Character Animations_combined_2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 320
-        width: 32
-        height: 32
+        width: 16
+        height: 23
       alignment: 0
       pivot: {x: .5, y: .5}
     - name: Character Animations_combined_3
