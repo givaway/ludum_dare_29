@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CharacterMovement : MonoBehaviour {
-
+	Animator animation;
 	public float movementSpeed;
 	public float jumpForce;
 	bool left = false;
@@ -10,7 +10,12 @@ public class CharacterMovement : MonoBehaviour {
 	Vector3 velocity_ref = Vector3.zero;
 	Vector3 velocity = Vector3.zero;
 	public bool jumping = true;
+	public float stamina = 10;
 	// Update is called once per frame
+	void Start()
+	{
+		animation = GetComponent<Animator>();
+	}
 	void Update () {
 
 		//handle movement left/right.
@@ -19,22 +24,30 @@ public class CharacterMovement : MonoBehaviour {
 			Vector3 scale = this.transform.localScale;
 			scale.x = -1;
 			this.transform.localScale = scale;
-			this.transform.position -= Vector3.SmoothDamp(velocity,new Vector3(movementSpeed,0,0),ref velocity_ref,0.9f);
+			stamina -= Input.GetKey(KeyCode.LeftShift) && stamina>0?1*Time.deltaTime:0;
+			animation.SetFloat("speed",Input.GetKey(KeyCode.LeftShift)?stamina>0?1.5f:1f:1f);
+			this.transform.position -= Vector3.SmoothDamp(velocity,new Vector3(Input.GetKey(KeyCode.LeftShift)?stamina>0?movementSpeed*1.5f:movementSpeed:movementSpeed,0,0),ref velocity_ref,0.9f);
 			left = false;
 		}
-		if(Input.GetKey(KeyCode.D)){
+		else if(Input.GetKey(KeyCode.D)){
 			//move right
 			Vector3 scale = this.transform.localScale;
 			scale.x = 1;
+			stamina -= Input.GetKey(KeyCode.LeftShift) && stamina>0?1*Time.deltaTime:0;
 			this.transform.localScale = scale;
-			this.transform.position += Vector3.SmoothDamp(velocity,new Vector3(movementSpeed,0,0),ref velocity_ref,0.9f);
+			animation.SetFloat("speed",Input.GetKey(KeyCode.LeftShift)?stamina>0?1.5f:1f:1f);
+			this.transform.position += Vector3.SmoothDamp(velocity,new Vector3(Input.GetKey(KeyCode.LeftShift)?stamina>0?movementSpeed*1.5f:movementSpeed:movementSpeed,0,0),ref velocity_ref,0.9f);
 			right = false;
 		}
-
+		else
+		{
+			stamina += stamina<10?1*Time.deltaTime:0;
+			animation.SetFloat("speed",0);
+		}
 		if((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))&& !jumping){
 			//jump bitch! 
 			jumping = true;
-			this.rigidbody.AddForce(new Vector3(0,jumpForce,0),ForceMode.Impulse);
+			this.rigidbody.AddForce(new Vector3(0,Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))?jumpForce/2:jumpForce,0),ForceMode.Impulse);
 		}
 
 	}
