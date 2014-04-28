@@ -12,7 +12,8 @@ function Start(){
 }
 
 function Update () {
-	ourTransform.position = cameraToFollow.transform.position;
+	ourTransform.position.x = cameraToFollow.transform.position.x;
+	ourTransform.position.y = cameraToFollow.transform.position.y;
 }
 
 function removeOxygen(amountToRemove : int){
