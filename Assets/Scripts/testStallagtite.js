@@ -5,7 +5,7 @@ var triggered : boolean;
 
 function OnCollisionEnter(Col : Collision){
 	if(Col.collider.tag == "Player"){
-	yield WaitForSeconds(0.5);
+	yield WaitForSeconds(1.5);
 	triggerObject();
 	}
 }
@@ -16,8 +16,11 @@ function triggerObject(){
 	for(var i : int = 0;i<objectToTrigger.Length;i++){
 		triggered = true;
 		objectToTrigger[i].useGravity = true;
+		objectToTrigger[i].collider.isTrigger = true;
 		objectToTrigger[i].isKinematic = false;  
 		objectToTrigger[i].tag = "Death";
+		yield WaitForSeconds(0.25);
+		objectToTrigger[i].collider.isTrigger = false;
 		}	 
 	}
 }
