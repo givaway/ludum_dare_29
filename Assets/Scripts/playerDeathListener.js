@@ -1,6 +1,7 @@
 ﻿#pragma strict
 
 var ourTransform : Transform;
+var guiFollow : guiFollow; //also reports/stores gems.
 
 function OnTriggerEnter(col:Collider){
 	if(col.collider.tag == "Death"){
@@ -12,5 +13,11 @@ function OnTriggerEnter(col:Collider){
 		//WE DIED BITCH, PSYCHOSOCIAL Oo
 		print("DEATH OCCURS HERE, play better n00b");
 		}
+	}
+	if(col.collider.tag == "Gem"){
+	guiFollow.addGems(1);
+	Destroy(col.collider.gameObject);
+	
+	
 	}
 }
