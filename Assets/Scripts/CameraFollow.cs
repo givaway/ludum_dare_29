@@ -7,6 +7,7 @@ public class CameraFollow : MonoBehaviour {
 	float z;
 	Vector3 velocity_ref = Vector3.zero; 
 	void Start () {
+		Time.timeScale = 1;
 		z = this.transform.position.z;
 	}
 	
@@ -16,5 +17,10 @@ public class CameraFollow : MonoBehaviour {
 		pos = Vector3.SmoothDamp(pos,follow.transform.position,ref velocity_ref,0.4f);
 		pos.z = z;
 		this.transform.position = pos;
+			if(Time.timeScale < 1){
+				if(z <= -2){
+				 z+=0.05f;
+				}
+			}
 	}
 }

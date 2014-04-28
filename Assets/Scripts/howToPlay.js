@@ -4,7 +4,7 @@ var updateText : boolean = false;
 
 function Start () {
 	ourText.text = "How to play:\nA/D to move. Space/W to jump.\nClick to shoot.\n\n\nCollect 15 gems to win the game.\n\nBut beware, your oxygen will run out!\n\n...also avoid getting hit on your head.";
-	yield WaitForSeconds(1.5);
+	yield WaitForSeconds(3.5);
 	updateText = true;
 }
 

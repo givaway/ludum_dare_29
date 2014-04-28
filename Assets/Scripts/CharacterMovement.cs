@@ -10,13 +10,15 @@ public class CharacterMovement : MonoBehaviour {
 	Vector3 velocity_ref = Vector3.zero;
 	Vector3 velocity = Vector3.zero;
 	public bool jumping = true;
-	public float stamina = 10;
+	public float stamina = 10; 
+
 	// Update is called once per frame
 	void Start()
-	{
+	{ 
 		animation = GetComponent<Animator>();
 	}
 	void Update () {
+		if(Time.timeScale >= 0.99){
 
 		//handle movement left/right.
 		if(Input.GetKey(KeyCode.A)){
@@ -49,8 +51,8 @@ public class CharacterMovement : MonoBehaviour {
 			jumping = true;
 			this.rigidbody.AddForce(new Vector3(0,Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))?jumpForce/2:jumpForce,0),ForceMode.Impulse);
 		}
-
 	}
+}
 	
 	void OnCollisionEnter(Collision e)
 	{
