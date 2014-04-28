@@ -2,6 +2,16 @@
 
 var ourTransform : Transform;
 var guiFollow : guiFollow; //also reports/stores gems.
+var time : float;
+
+function Update(){
+	time += 1*Time.deltaTime;
+	if(time >= 2){
+		guiFollow.removeOxygen(1);
+		time = 0;
+	}
+
+}
 
 function OnTriggerEnter(col:Collider){
 	if(col.collider.tag == "Death"){
@@ -17,7 +27,6 @@ function OnTriggerEnter(col:Collider){
 	if(col.collider.tag == "Gem"){
 	guiFollow.addGems(1);
 	Destroy(col.collider.gameObject);
-	
 	
 	}
 }

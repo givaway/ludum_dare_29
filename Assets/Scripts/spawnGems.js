@@ -8,6 +8,6 @@ function Start () {
 
 function spawnGems(amountToSpawn : int){
 	for(var i : int = 0;i<amountToSpawn;i++){
-		Instantiate(gemToMake,Vector3(Random.Range(-2000,2000),Random.Range(-2000,2000),0),Quaternion.identity);
+		Instantiate(gemToMake,Vector3(Random.Range(-2000,2000),Random.Range(-2000,2000),-0.45),Quaternion.identity);
 	}
 }
