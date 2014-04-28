@@ -13,7 +13,7 @@ public class ChunkGenerator : MonoBehaviour {
 		Vector2 chunk_position = new Vector2(Mathf.FloorToInt(follow.transform.position.x/chunkSize),Mathf.FloorToInt(follow.transform.position.y/chunkSize));
 		GameObject g;
 		for(int x = -chunkLoadRadius; x<chunkLoadRadius; x++)
-		{
+		{ 
 			for(int y = -chunkLoadRadius; y<chunkLoadRadius; y++)
 			{
 				

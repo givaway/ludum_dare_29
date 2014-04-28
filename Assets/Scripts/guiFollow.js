@@ -7,7 +7,7 @@ var currentOxygen : int;
 var ourText : TextMesh;
 
 function Start(){
-	currentOxygen = 500;
+	currentOxygen = 500; 
 	ourText.text = "Gems: " + currentGems.ToString() + "\nOxygen: " + currentOxygen.ToString();
 }
 

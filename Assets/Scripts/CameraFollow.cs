@@ -4,7 +4,7 @@ using System.Collections;
 public class CameraFollow : MonoBehaviour {
 	public GameObject follow;
 	// Use this for initialization
-	float velocity_ref = 0;
+	float velocity_ref = 0; 
 	void Start () {
 	
 	}
